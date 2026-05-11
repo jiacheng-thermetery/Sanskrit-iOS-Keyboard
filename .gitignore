@@ -1,0 +1,12 @@
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+build/
+.build/
+*.swp
+.DS_Store
+
+# Generated
+*.xcodeproj

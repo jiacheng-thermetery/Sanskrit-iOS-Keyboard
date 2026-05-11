@@ -1,0 +1,154 @@
+name: IASTKeyboard
+options:
+  bundleIdPrefix: com.thermetery
+  deploymentTarget:
+    iOS: "16.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""           # <-- set this to your Apple Developer Team ID
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+targets:
+  IASTKeyboard:
+    type: application
+    platform: iOS
+    sources:
+      - path: IASTKeyboard
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard
+        INFOPLIST_FILE: IASTKeyboard/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        DEVELOPMENT_ASSET_PATHS: "\"IASTKeyboard/Preview Content\""
+        ENABLE_PREVIEWS: YES
+        GENERATE_INFOPLIST_FILE: NO
+    dependencies:
+      - target: IASTKeyboardExtension
+      - target: HKIASTKeyboardExtension
+      - target: HKDevanagariKeyboardExtension
+      - target: IASTDevanagariKeyboardExtension
+      - target: VelthuisIASTKeyboardExtension
+      - target: VelthuisDevanagariKeyboardExtension
+
+  IASTKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: IASTKeyboardExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.keyboard
+        INFOPLIST_FILE: IASTKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+
+  HKIASTKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: HKIASTKeyboardExtension
+      - path: HKShared
+      # Reuse the UI primitives from the IAST extension's folder.
+      - path: IASTKeyboardExtension/KeyDefinition.swift
+      - path: IASTKeyboardExtension/KeyButton.swift
+      - path: IASTKeyboardExtension/KeyboardView.swift
+      - path: IASTKeyboardExtension/PopoverView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.hkiast
+        INFOPLIST_FILE: HKIASTKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+
+  HKDevanagariKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: HKDevanagariKeyboardExtension
+      - path: HKShared
+      - path: IASTKeyboardExtension/KeyDefinition.swift
+      - path: IASTKeyboardExtension/KeyButton.swift
+      - path: IASTKeyboardExtension/KeyboardView.swift
+      - path: IASTKeyboardExtension/PopoverView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.hkdeva
+        INFOPLIST_FILE: HKDevanagariKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+
+  IASTDevanagariKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: IASTDevanagariKeyboardExtension
+      # Reuse the IAST popover keyboard UI + layout.
+      - path: IASTKeyboardExtension/KeyDefinition.swift
+      - path: IASTKeyboardExtension/KeyButton.swift
+      - path: IASTKeyboardExtension/KeyboardView.swift
+      - path: IASTKeyboardExtension/PopoverView.swift
+      - path: IASTKeyboardExtension/KeyboardLayouts.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.iastdeva
+        INFOPLIST_FILE: IASTDevanagariKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+
+  VelthuisIASTKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: VelthuisIASTKeyboardExtension
+      - path: VelthuisShared
+      # Reuse the popover UI primitives (the popover-style layout itself is
+      # Velthuis-specific and lives under VelthuisShared).
+      - path: IASTKeyboardExtension/KeyDefinition.swift
+      - path: IASTKeyboardExtension/KeyButton.swift
+      - path: IASTKeyboardExtension/KeyboardView.swift
+      - path: IASTKeyboardExtension/PopoverView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.velthuisiast
+        INFOPLIST_FILE: VelthuisIASTKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+
+  VelthuisDevanagariKeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: VelthuisDevanagariKeyboardExtension
+      - path: VelthuisShared
+      - path: IASTKeyboardExtension/KeyDefinition.swift
+      - path: IASTKeyboardExtension/KeyButton.swift
+      - path: IASTKeyboardExtension/KeyboardView.swift
+      - path: IASTKeyboardExtension/PopoverView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.velthuisdeva
+        INFOPLIST_FILE: VelthuisDevanagariKeyboardExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
