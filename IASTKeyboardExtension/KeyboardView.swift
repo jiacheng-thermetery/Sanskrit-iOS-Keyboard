@@ -10,6 +10,8 @@ final class KeyboardView: UIView {
 
     weak var delegate: KeyboardViewDelegate?
 
+    private let reservesPopoverHeadroom: Bool
+
     private var mode: KeyboardMode = .letters
     private var shiftState: ShiftState = .off
 
@@ -20,10 +22,11 @@ final class KeyboardView: UIView {
     private let keySpacing: CGFloat = 6
     private let rowSpacing: CGFloat = 9
     private let edgeInset: CGFloat = 4
-    private let topInset: CGFloat = 8
+    private var topInset: CGFloat { reservesPopoverHeadroom ? 86 : 8 }
     private let bottomInset: CGFloat = 6
 
-    init() {
+    init(reservesPopoverHeadroom: Bool = false) {
+        self.reservesPopoverHeadroom = reservesPopoverHeadroom
         super.init(frame: .zero)
         clipsToBounds = false
         backgroundColor = UIColor { trait in
@@ -168,6 +171,7 @@ final class KeyboardView: UIView {
         let view = PopoverView(alternates: displayAlts, initialIndex: initialIdx)
         view.frame = frame
         addSubview(view)
+        bringSubviewToFront(view)
         popover = view
         popoverOriginKey = key
     }

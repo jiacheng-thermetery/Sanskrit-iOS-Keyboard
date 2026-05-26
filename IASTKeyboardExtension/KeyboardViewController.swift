@@ -9,7 +9,7 @@ final class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         view.clipsToBounds = false
 
-        keyboardView = KeyboardView()
+        keyboardView = KeyboardView(reservesPopoverHeadroom: true)
         keyboardView.delegate = self
         keyboardView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(keyboardView)
@@ -30,7 +30,7 @@ final class KeyboardViewController: UIInputViewController {
         // Pick a height that matches the iOS system keyboard reasonably well across devices.
         // System keyboard portrait is ~216–291pt depending on device; landscape is shorter.
         let isPortrait = view.bounds.height >= view.bounds.width
-        let target: CGFloat = isPortrait ? 260 : 200
+        let target: CGFloat = isPortrait ? 346 : 275
 
         if let c = heightConstraint {
             if abs(c.constant - target) > 0.5 { c.constant = target }
