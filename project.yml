@@ -37,7 +37,7 @@ targets:
       - path: IASTKeyboard
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards
         INFOPLIST_FILE: IASTKeyboard/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -61,7 +61,7 @@ targets:
       - path: IASTKeyboardExtension
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.keyboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.keyboard
         INFOPLIST_FILE: IASTKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -81,7 +81,7 @@ targets:
       - path: IASTKeyboardExtension/PopoverView.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.hkiast
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.hkiast
         INFOPLIST_FILE: HKIASTKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -100,7 +100,7 @@ targets:
       - path: IASTKeyboardExtension/PopoverView.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.hkdeva
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.hkdeva
         INFOPLIST_FILE: HKDevanagariKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -120,7 +120,7 @@ targets:
       - path: IASTKeyboardExtension/KeyboardLayouts.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.iastdeva
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.iastdeva
         INFOPLIST_FILE: IASTDevanagariKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -141,7 +141,7 @@ targets:
       - path: IASTKeyboardExtension/PopoverView.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.velthuisiast
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.velthuisiast
         INFOPLIST_FILE: VelthuisIASTKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
@@ -160,7 +160,7 @@ targets:
       - path: IASTKeyboardExtension/PopoverView.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.iastkeyboard.velthuisdeva
+        PRODUCT_BUNDLE_IDENTIFIER: com.thermetery.sanskritkeyboards.velthuisdeva
         INFOPLIST_FILE: VelthuisDevanagariKeyboardExtension/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
